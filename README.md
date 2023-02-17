@@ -7,10 +7,10 @@ $ virtualenv env
 $ source env/bin/activate
 4. Then install the dependencies:
 $ (env) pip install -r requirements.txt
-5. Then run the following commands:
-$ >>> from app import app, db
-$ >>> app.app_context().push()
-$ >>> db.create_all()
-$ >>> exit()
+5. Then run the following commands:\n
+    $ >>> from app import app, db\n
+    $ >>> app.app_context().push()\n
+    $ >>> db.create_all()\n
+    $ >>> exit()\n
 5. Finally start the web server:
 $ (env) python app.py
