@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{ task.name }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div style="text-align: center;">
+        <button onclick="goBack()">Go Back</button>
+        <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+    </div>
+
+    <h1 style="text-align: center">{{ task.name }}</h1>
+    <h2 style="text-align: center">(This is an AI generated recipe)</h2>
+    <h3 style="text-align: center"></h3>>{{ task.options }}</h3>
+
+    <form action="{{ url_for('view', id=task.id) }}" method="POST">
+        <pre><code style="white-space: pre-wrap">{{ task.content }}</code></pre>
+        <br>
+        <label for="content">Edit Recipe:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50">{{ task.content }}</textarea><br><br>
+        <button type="submit">Save</button>
+    </form>
+
+
+
+</div>
+{% endblock %}
