@@ -1,20 +1,21 @@
-'''This is a Python Flask web application that generates recipe suggestions using 
-OpenAI's GPT-3 API. The user provides certain criteria, such as a protein option, 
-a special ingredient, and a region, and the API generates a recipe based on the 
-given inputs. The generated recipe is then stored in a SQLite database and 
-displayed to the user. The user can also edit and delete the recipe entries.
+'''This is a Python Flask web application that generates recipe suggestions
+using OpenAI's GPT-3 API. The user provides certain criteria, such as a 
+protein option, a special ingredient, and a region, and the API generates a 
+recipe based on the given inputs. The generated recipe is then stored in a 
+SQLite database and displayed to the user. The user can also edit and delete the recipe entries.
 
-The code includes the necessary imports, such as Flask, SQLAlchemy, requests, and 
-json. It creates a Flask app object, configures the app's database, and initializes 
-a SQLAlchemy database. The database schema is defined in the Todo class, which has 
-id, options, name, content, and date_created attributes.
+The code includes the necessary imports, such as Flask, SQLAlchemy, requests, 
+and json. It creates a Flask app object, configures the app's database, and 
+initializes a SQLAlchemy database. The database schema is defined in the Todo 
+class, which has id, options, name, content, and date_created attributes.
 
-There are three routes in the code. The index route displays the list of previously 
-generated recipes and a form to add a new recipe. If the user submits the form, the 
-app sends a request to the OpenAI API to generate a recipe, and the API's response 
-is used to create a new recipe entry in the database. The delete route allows the 
-user to delete a recipe from the database, and the view route displays the details 
-of a recipe and allows the user to edit the recipe content.'''
+There are three routes in the code. The index route displays the list of 
+previously generated recipes and a form to add a new recipe. If the user 
+submits the form, the app sends a request to the OpenAI API to generate a 
+recipe, and the API's response is used to create a new recipe entry in the 
+database. The delete route allows the user to delete a recipe from the 
+database, and the view route displays the details of a recipe and allows the 
+user to edit the recipe content.'''
 
 from flask import Flask, render_template, request, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
@@ -174,11 +175,11 @@ def openAI_prompt(option_a, option_b, option_c, option_d):
     Returns:
         str: A recipe prompt in the required format, with the given options included.
     """
-    prompt = (f'Create a detailed recipe in the style of {option_c} and {option_d},' 
-              f'that uses {option_a} for the protein, includes {option_b}, and a '
-              f'reasonable quantity of salt. Make sure to include {option_c} '
-              f'incredients and {option_d} ingredients. Please write the ingredients '
-              f'and instructions in the format of a recipe. Use detailed instructions. '
+    prompt = (f'Create a detailed recipe in the style of {option_c} and ' 
+              f'{option_d}, that uses {option_a} for the protein, includes ' 
+              f'{option_b}, and a reasonable quantity of salt. Make sure to '
+              f'include {option_c} incredients and {option_d} ingredients.' f'Please write the ingredients and instructions in the format '
+              f'of a recipe. Use detailed instructions. '
               f'Please format the recipe list as follows:\n\n'
               f'Instructions: [instructions]\n\n'
               f'Ingredients:\n[ingredients]\n\n'
