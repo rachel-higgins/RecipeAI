@@ -4,9 +4,7 @@ protein option, a special ingredient, and a region, and the API generates a
 recipe based on the given inputs. The generated recipe is then stored in a 
 SQLite database and displayed to the user. The user can also edit and delete the recipe entries.
 
-The code includes the necessary imports, such as Flask, SQLAlchemy, requests, 
-and json. It creates a Flask app object, configures the app's database, and 
-initializes a SQLAlchemy database. The database schema is defined in the Todo 
+The database schema is defined in the Todo 
 class, which has id, options, name, content, and date_created attributes.
 
 There are three routes in the code. The index route displays the list of 
